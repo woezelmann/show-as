@@ -10,6 +10,8 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileFactory;
 import com.intellij.psi.codeStyle.CodeStyleManager;
+import com.intellij.sql.dialects.SqlLanguageDialect;
+import com.intellij.sql.psi.SqlLanguage;
 import com.sun.jdi.Value;
 import com.sun.tools.jdi.StringReferenceImpl;
 
