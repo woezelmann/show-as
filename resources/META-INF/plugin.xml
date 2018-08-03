@@ -1,11 +1,11 @@
-<idea-plugin version="2">
-  <name>Show As ...</name>
+<idea-plugin>
+    <name>Show As ...</name>
 
-  <description>
-    <![CDATA[
-      A small plugin to display formatted data out of the debugger.<br><br>
+    <description>
+        <![CDATA[
+      A small plugin to display formatted data out of the debugger and console.<br><br>
       Uses IntelliJ's build-in formatting capabilities.<br>
-      No more need to copy values from debugger to a file to format them there.
+      No more need to copy values from debugger or console to a file to format them there.
 
       Following formats are supported: <br>
       <ul>
@@ -17,38 +17,59 @@
        </ul>
 
        Usage:
+       <ul>
+        <li>
        While debugging, a new context menu item ("Show as") is added to every variable, allowing you to display the value of this variable formatted.
        The context menu item is available in debugger -> variables, debugger -> watches and when evaluating expressions.
+        </li>
+        <li>
+       From console, just select text that should be formatted, right click it and select "Show as".
+        </li>
+       </ul>
       ]]>
-  </description>
+    </description>
 
-  <version>0.6</version>
-  <vendor email="woezelmann@gmail.com">Christoph Kamil Wozniak</vendor>
-  <idea-version since-build="141.2735.5"/>
+    <version>1.0</version>
+    <vendor email="woezelmann@gmail.com">Christoph Kamil Wozniak</vendor>
+    <idea-version since-build="141.2735.5"/>
 
-  <depends>com.intellij.modules.xdebugger</depends>
-  <depends>com.intellij.modules.lang</depends>
-  <depends>com.intellij.database</depends>
+    <depends>com.intellij.modules.xdebugger</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.database</depends>
 
-  <actions>
-    <group id="Debugger.ShowAsGroup" text="Show as" popup="true">
-      <action id="Debugger.ShowAsJson" class="com.woezelmann.showas.language.ShowAsJson" text="JSON"/>
-      <action id="Debugger.ShowAsSql" class="com.woezelmann.showas.language.ShowAsSql" text="SQL"/>
-      <action id="Debugger.ShowAsXml" class="com.woezelmann.showas.language.ShowAsXml" text="XML"/>
-      <action id="Debugger.ShowAsBase64" class="com.woezelmann.showas.language.ShowAsDecodedBase64" text="decoded Base64"/>
-      <action id="Debugger.ShowAsJsonBase64" class="com.woezelmann.showas.language.ShowAsDecodedBase64Json" text="decoded Base64 JSON"/>
+    <actions>
+        <group id="Debugger.ShowAsGroup" text="Show as" popup="true">
+            <action id="Debugger.ShowAsJson" class="com.woezelmann.showas.debugger.ShowAsJson" text="JSON"/>
+            <action id="Debugger.ShowAsSql" class="com.woezelmann.showas.debugger.ShowAsSql" text="SQL"/>
+            <action id="Debugger.ShowAsXml" class="com.woezelmann.showas.debugger.ShowAsXml" text="XML"/>
+            <action id="Debugger.ShowAsBase64" class="com.woezelmann.showas.debugger.ShowAsDecodedBase64"
+                    text="decoded Base64"/>
+            <action id="Debugger.ShowAsJsonBase64" class="com.woezelmann.showas.debugger.ShowAsDecodedBase64Json"
+                    text="decoded Base64 JSON"/>
 
-      <add-to-group group-id="XDebugger.Watches.Tree.Popup" anchor="last"/>
-      <add-to-group group-id="XDebugger.Variables.Tree.Toolbar" anchor="last"/>
-      <add-to-group group-id="XDebugger.Variables.Tree.Popup" anchor="last"/>
-      <add-to-group group-id="XDebugger.Evaluation.Dialog.Tree.Popup" anchor="last"/>
-      <add-to-group group-id="XDebugger.Inspect.Tree.Popup" anchor="last"/>
-    </group>
-  </actions>
+            <add-to-group group-id="XDebugger.Watches.Tree.Popup" anchor="last"/>
+            <add-to-group group-id="XDebugger.Variables.Tree.Toolbar" anchor="last"/>
+            <add-to-group group-id="XDebugger.Variables.Tree.Popup" anchor="last"/>
+            <add-to-group group-id="XDebugger.Evaluation.Dialog.Tree.Popup" anchor="last"/>
+            <add-to-group group-id="XDebugger.Inspect.Tree.Popup" anchor="last"/>
+        </group>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
+        <group id="Console.ShowAsGroup" text="Show as" popup="true">
+            <action id="Console.ShowAsJson" class="com.woezelmann.showas.console.ShowAsJson" text="JSON"/>
+            <action id="Console.ShowAsSql" class="com.woezelmann.showas.console.ShowAsSql" text="SQL"/>
+            <action id="Console.ShowAsXml" class="com.woezelmann.showas.console.ShowAsXml" text="XML"/>
+            <action id="Console.ShowAsBase64" class="com.woezelmann.showas.console.ShowAsDecodedBase64"
+                    text="decoded Base64"/>
+            <action id="Console.ShowAsJsonBase64" class="com.woezelmann.showas.console.ShowAsDecodedBase64Json"
+                    text="decoded Base64 JSON"/>
+
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
+        </group>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
 
 
 </idea-plugin>
