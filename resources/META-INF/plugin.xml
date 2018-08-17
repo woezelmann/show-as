@@ -39,12 +39,7 @@
 
     <actions>
         <group id="Debugger.ShowAsGroup" text="Show as" popup="true">
-            <action id="Debugger.ShowAsJson" class="com.woezelmann.showas.debugger.ShowAsJson" text="JSON"/>
-            <action id="Debugger.ShowAsXml" class="com.woezelmann.showas.debugger.ShowAsXml" text="XML"/>
-            <action id="Debugger.ShowAsBase64" class="com.woezelmann.showas.debugger.ShowAsDecodedBase64"
-                    text="decoded Base64"/>
-            <action id="Debugger.ShowAsJsonBase64" class="com.woezelmann.showas.debugger.ShowAsDecodedBase64Json"
-                    text="decoded Base64 JSON"/>
+            <action id="Debugger.ShowAsJson" class="com.woezelmann.showas.AdvancedShowAs" text="JSON"/>
 
             <add-to-group group-id="XDebugger.Watches.Tree.Popup" anchor="last"/>
             <add-to-group group-id="XDebugger.Variables.Tree.Toolbar" anchor="last"/>
@@ -54,12 +49,7 @@
         </group>
 
         <group id="Console.ShowAsGroup" text="Show as" popup="true">
-            <action id="Console.ShowAsJson" class="com.woezelmann.showas.console.ShowAsJson" text="JSON"/>
-            <action id="Console.ShowAsXml" class="com.woezelmann.showas.console.ShowAsXml" text="XML"/>
-            <action id="Console.ShowAsBase64" class="com.woezelmann.showas.console.ShowAsDecodedBase64"
-                    text="decoded Base64"/>
-            <action id="Console.ShowAsJsonBase64" class="com.woezelmann.showas.console.ShowAsDecodedBase64Json"
-                    text="decoded Base64 JSON"/>
+            <action id="Debugger.ShowAsJson" class="com.woezelmann.showas.AdvancedShowAs" text="JSON"/>
 
             <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
         </group>
