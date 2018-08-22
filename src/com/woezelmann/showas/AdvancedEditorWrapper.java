@@ -10,6 +10,7 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiFileFactory;
 import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.ui.EditorTextField;
+import com.woezelmann.showas.button.NorthButton;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -19,8 +20,8 @@ import java.awt.*;
 public class AdvancedEditorWrapper extends DialogWrapper {
 
     private JPanel panel = new JPanel(new BorderLayout());
-    private JPanel northButtons = new JPanel(new GridLayout(1, 20));
-    private JPanel southButtons = new JPanel(new GridLayout(1, 20));
+    private JPanel northButtons = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    private JPanel southButtons = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
     protected AdvancedEditorWrapper(Project project, String text) {
         super(project);
@@ -30,31 +31,18 @@ public class AdvancedEditorWrapper extends DialogWrapper {
 
         EditorTextField editorTextField = createEditorTextField(JsonLanguage.INSTANCE, project, text);
         editorTextField.setVisible(true);
+
         panel.add(editorTextField);
         panel.add(northButtons, BorderLayout.NORTH);
         panel.add(southButtons, BorderLayout.SOUTH);
 
-        Button source = createNorthButton(editorTextField, "source");
-        northButtons.add(source);
+        new NorthButton("SOURCE", panel, northButtons, editorTextField).init();
 
-        Button button1 = createSouthButton(JsonLanguage.INSTANCE, project, "JSON");
-        Button button2 = createSouthButton(XMLLanguage.INSTANCE, project, "XML");
-        southButtons.add(button1);
-        southButtons.add(button2);
+        createSouthButton(JsonLanguage.INSTANCE, project, "JSON");
+        createSouthButton(XMLLanguage.INSTANCE, project, "XML");
     }
 
-    @NotNull
-    private Button createNorthButton(EditorTextField textField, String name) {
-        Button comp = new Button(name);
-        comp.addActionListener(e -> {
 
-            panel.remove(0);
-            panel.add(textField, 0);
-            panel.revalidate();
-            panel.repaint();
-        });
-        return comp;
-    }
 
     @NotNull
     private Button createSouthButton(Language language, Project project, String name) {
@@ -72,8 +60,10 @@ public class AdvancedEditorWrapper extends DialogWrapper {
             panel.repaint();
 
             northButtons.add(new Label(">"));
-            northButtons.add(createNorthButton(editorTextField, name));
+            new NorthButton(name, panel, northButtons, textField).init();
         });
+
+        southButtons.add(comp);
         return comp;
     }
 
