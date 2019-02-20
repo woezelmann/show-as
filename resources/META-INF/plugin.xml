@@ -3,6 +3,14 @@
 
     <description>
         <![CDATA[
+
+      <h2></h2>
+      DISCLAIMER:
+      <br>
+      <strong>This plugin is developed for and with IntelliJ Idea. The compatibility list is compiled automatically by JetBrains. Bugs in other JetBrain products still might appear.<br>
+      Nevertheless I encourage you to file issues in github. </strong>
+      <br><br>
+
       A small plugin to display formatted data out of the debugger and console.<br><br>
       Uses IntelliJ's build-in formatting capabilities.<br>
       No more need to copy values from debugger or console to a file to format them there.
