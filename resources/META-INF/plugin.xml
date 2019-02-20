@@ -10,7 +10,7 @@
       Following formats are supported: <br>
       <ul>
          <li>JSON</li>
-         <li>SQL (optional, requires database plugin)</li>
+         <li>SQL</li>
          <li>XML</li>
          <li>Base64 encoded JSON</li>
          <li>Base64 encoded text</li>
@@ -29,17 +29,18 @@
       ]]>
     </description>
 
-    <version>1.0.1</version>
+    <version>1.0</version>
     <vendor email="woezelmann@gmail.com">Christoph Kamil Wozniak</vendor>
     <idea-version since-build="141.2735.5"/>
 
     <depends>com.intellij.modules.xdebugger</depends>
     <depends>com.intellij.modules.lang</depends>
-    <depends optional="true">com.intellij.database</depends>
+    <depends>com.intellij.database</depends>
 
     <actions>
         <group id="Debugger.ShowAsGroup" text="Show as" popup="true">
             <action id="Debugger.ShowAsJson" class="com.woezelmann.showas.debugger.ShowAsJson" text="JSON"/>
+            <action id="Debugger.ShowAsSql" class="com.woezelmann.showas.debugger.ShowAsSql" text="SQL"/>
             <action id="Debugger.ShowAsXml" class="com.woezelmann.showas.debugger.ShowAsXml" text="XML"/>
             <action id="Debugger.ShowAsBase64" class="com.woezelmann.showas.debugger.ShowAsDecodedBase64"
                     text="decoded Base64"/>
@@ -55,6 +56,7 @@
 
         <group id="Console.ShowAsGroup" text="Show as" popup="true">
             <action id="Console.ShowAsJson" class="com.woezelmann.showas.console.ShowAsJson" text="JSON"/>
+            <action id="Console.ShowAsSql" class="com.woezelmann.showas.console.ShowAsSql" text="SQL"/>
             <action id="Console.ShowAsXml" class="com.woezelmann.showas.console.ShowAsXml" text="XML"/>
             <action id="Console.ShowAsBase64" class="com.woezelmann.showas.console.ShowAsDecodedBase64"
                     text="decoded Base64"/>
