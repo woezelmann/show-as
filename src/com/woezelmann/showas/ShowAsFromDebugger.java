@@ -22,7 +22,11 @@ public class ShowAsFromDebugger extends ShowAs {
         final Value value = selectedValues.get(0).getDescriptor().getValue();
 
         if (value instanceof com.sun.tools.jdi.StringReferenceImpl) {
-            return ((StringReferenceImpl) value).value();
+            return ((com.sun.tools.jdi.StringReferenceImpl) value).value();
+        }
+
+        if (value instanceof com.jetbrains.jdi.StringReferenceImpl) {
+            return ((com.jetbrains.jdi.StringReferenceImpl) value).value();
         }
 
         return null;

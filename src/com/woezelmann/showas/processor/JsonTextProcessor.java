@@ -25,7 +25,7 @@ public class JsonTextProcessor extends BufferedTextProcessor {
         final PsiElement reformat = CodeStyleManager.getInstance(project).reformat(psiFile.copy());
 
         EditorTextField editorTextField = createEditorTextField(language, project, reformat.getText());
-
+        return editorTextField;
     }
 
     @NotNull

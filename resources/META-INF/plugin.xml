@@ -37,9 +37,11 @@
       ]]>
     </description>
 
-    <version>1.0.2</version>
+    <change-notes>Adjusting the plugin to API changes, again...</change-notes>
+
+    <version>1.0.3</version>
     <vendor email="woezelmann@gmail.com">Christoph Kamil Wozniak</vendor>
-    <idea-version since-build="141.2735.5"/>
+    <idea-version since-build="201.7846.76"/>
 
     <depends>com.intellij.modules.xdebugger</depends>
     <depends>com.intellij.modules.lang</depends>

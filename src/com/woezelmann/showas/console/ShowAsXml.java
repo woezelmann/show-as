@@ -2,7 +2,6 @@ package com.woezelmann.showas.console;
 
 import com.intellij.lang.xml.XMLLanguage;
 import com.woezelmann.showas.ShowAsFromConsole;
-import com.woezelmann.showas.ShowAsFromDebugger;
 
 /**
  * @author wozniak

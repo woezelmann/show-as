@@ -2,7 +2,6 @@ package com.woezelmann.showas.console;
 
 import com.intellij.openapi.fileTypes.PlainTextLanguage;
 import com.woezelmann.showas.ShowAsFromConsole;
-import com.woezelmann.showas.ShowAsFromDebugger;
 
 import java.util.Base64;
 
