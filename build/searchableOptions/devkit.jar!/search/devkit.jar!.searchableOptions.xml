@@ -1,0 +1,27 @@
+<options>
+  <configurable id="fileTemplates" configurable_name="File and Code Templates">
+    <option name="action" hit="Action" />
+    <option name="inspectiondescription" hit="InspectionDescription" />
+    <option name="messagebundle" hit="MessageBundle" />
+    <option name="themeeditorcolorscheme" hit="ThemeEditorColorScheme" />
+    <option name="themejson" hit="ThemeJson" />
+    <option name="build" hit="devkit-build.gradle" />
+    <option name="devkit" hit="devkit-build.gradle" />
+    <option name="gradle" hit="devkit-build.gradle" />
+    <option name="devkit" hit="devkit-gradle-wrapper" />
+    <option name="gradle" hit="devkit-gradle-wrapper" />
+    <option name="wrapper" hit="devkit-gradle-wrapper" />
+    <option name="devkit" hit="devkit-plugin" />
+    <option name="plugin" hit="devkit-plugin" />
+    <option name="devkit" hit="devkit-settings.gradle" />
+    <option name="gradle" hit="devkit-settings.gradle" />
+    <option name="settings" hit="devkit-settings.gradle" />
+    <option name="devkit" hit="devkit-theme" />
+    <option name="theme" hit="devkit-theme" />
+    <option name="devkit" hit="devkit-theme-plugin" />
+    <option name="plugin" hit="devkit-theme-plugin" />
+    <option name="theme" hit="devkit-theme-plugin" />
+    <option name="gradlebasedplugin" hit="gradleBasedPlugin" />
+    <option name="plugin" hit="plugin" />
+  </configurable>
+</options>

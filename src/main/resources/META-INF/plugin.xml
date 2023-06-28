@@ -1,0 +1,71 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>Show As ...</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Show As ...</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="woezelmann@gmail.com">PRIVATE</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    A small plugin to display formatted data out of the debugger and console.<br><br>
+      Uses IntelliJ's build-in formatting capabilities.<br>
+      No more need to copy values from debugger or console to a file to format them there.
+
+      Following formats are supported: <br>
+      <ul>
+         <li>JSON</li>
+         <li>XML</li>
+       </ul>
+
+       Usage:
+       <ul>
+        <li>
+       While debugging, a new context menu item ("Show as") is added to every variable, allowing you to display the value of this variable formatted.
+       The context menu item is available in debugger -> variables, debugger -> watches and when evaluating expressions.
+        </li>
+        <li>
+       From console, just select text that should be formatted, right click it and select "Show as".
+        </li>
+       </ul>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.xdebugger</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.xml</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+    <actions>
+        <group id="Debugger.ShowAsGroup" text="Show as" popup="true">
+
+            <action id="Debugger.ShowAsJson" class="com.woezelmann.showas.debugger.ShowAsJson" text="JSON"/>
+            <action id="Debugger.ShowAsXml" class="com.woezelmann.showas.debugger.ShowAsXml" text="XML"/>
+
+            <add-to-group group-id="XDebugger.Watches.Tree.Popup" anchor="last"/>
+            <add-to-group group-id="XDebugger.Variables.Tree.Toolbar" anchor="last"/>
+            <add-to-group group-id="XDebugger.Variables.Tree.Popup" anchor="last"/>
+            <add-to-group group-id="XDebugger.Evaluation.Dialog.Tree.Popup" anchor="last"/>
+            <add-to-group group-id="XDebugger.Inspect.Tree.Popup" anchor="last"/>
+        </group>
+
+        <group id="Console.ShowAsGroup" text="Show as" popup="true">
+            <action id="Console.ShowAsJson" class="com.woezelmann.showas.console.ShowAsJson" text="JSON"/>
+            <action id="Console.ShowAsXml" class="com.woezelmann.showas.console.ShowAsXml" text="XML"/>
+
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
+        </group>
+    </actions>
+</idea-plugin>
